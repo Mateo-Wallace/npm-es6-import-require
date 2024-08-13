@@ -1,0 +1,27 @@
+{
+  "name": "npm-es6-import-require",
+  "version": "1.0.0",
+  "description": "npm package test for import and require using es6",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js"
+    }
+  },
+  "scripts": {
+    "build:cjs": "babel src --out-dir dist/cjs --presets=@babel/preset-env",
+    "build:esm": "babel src --out-dir dist/esm --presets=@babel/preset-env --plugins=@babel/plugin-transform-modules-commonjs",
+    "build": "npm run build:cjs && npm run build:esm",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mateo-Wallace",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.24.8",
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.3",
+    "nodemon": "^3.1.4"
+  }
+}
